@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary mb-3">
+<div class="container">
+<a href="/" class="navbar-brand">Emna khiari</a>
+ <button class="navbar-toggler" type="button" datatoggle="collapse" data-target="#mobile-nav">
+ <span class="navbar-toggle-icon"></span>
+ </button>
+ <div class="collapse navbar-collapse" id="mobile-nav">
+ <ul class="navbar-nav ml-auto">
+ <li class="nav-item">
+ <a href="/" class="nav-link">Home</a>
+ </li>
+
+ <li class="nav-item">
+ <a href="{{ path('film_par_gen')}}" class="nav-link">Recherche par Genre</a>
+ </li>
+ <li class="nav-item">
+<a href="{{path('film_par_duree')}}" class="nav-link">Recherche par duree</a>
+</li>
+  
+ 
+
+ {% if is_granted('ROLE_ADMIN') %} 
+ <li class="nav-item">
+ <a href="{{ path('admin_utilisateurs')}}" class="nav-link">Administration</a>
+ </li>
+
+ {% if is_granted('ROLE_EDITOR') %} 
+ <li class="nav-item">
+ <a href="{{ path('new_film')}}" class="nav-link">Ajouter un film</a>
+ </li>
+ <li class="nav-item">
+ <a href="{{ path('new_Genre')}}" class="nav-link">Ajouter un Genre</a>
+ </li>
+ {% endif %}
+ {% endif %} 
+{% if not app.user %}
+ <li class="nav-item">
+ <a href="{{ path('security_login')}}" class="nav-link">Connexion</a>
+ </li>
+ {% else %}
+ <li class="nav-item">
+ <a href="{{ path('security_logout')}}" class="nav-link">Déconnexion</a>
+ </li>
+ {% endif %}
+
+
+ </ul>
+ </div>
+</div>
+</nav>

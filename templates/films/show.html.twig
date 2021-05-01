@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ film.titre }}{% endblock %}
+{% block body %}
+<h1>{{ film.titre }}</h1>
+<img src="/templates/films/film1.jpg" alt="Bootstrap" class="img-responsive" />
+<p> duree : {{ film.duree }}</p><hr>
+<p>{{ film.Genre.titre }}</p>
+<h4>Quand Thomas reprend connaissance, il est pris au piège avec un groupe d'autres garçons dans un labyrinthe géant dont le plan est modifié chaque nuit. Il n'a plus aucun souvenir du monde extérieur, à part d'étranges rêves à propos d'une mystérieuse organisation appelée W.C.K.D. En reliant certains fragments de son passé, avec des indices qu'il découvre au sein du labyrinthe, Thomas espère trouver un moyen de s'en échapper.</h4>
+<hr>
+<a href="/">Retour</a>
+{% endblock %}

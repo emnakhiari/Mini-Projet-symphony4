@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+{% block title%} Liste des Film{% endblock %}
+{% block body %}
+{{ form_start(form) }}
+<div class="form-row align-items-end" >
+<div class="col">
+ {{ form_row(form.titre) }}
+</div>
+ <div class="col">
+ <div class="form-group">
+ <button type="submit" class="btn btn-success">Rechercher</button>
+ </div>
+</div>
+</div>
+{{ form_end(form) }}
+
+{% if films %}
+ <table id="films" class="table table-striped">
+ <thead>
+ <tr>
+ <th>films</th>
+ <th>duree</th>
+ <th>Genre</th>
+ <th>Information</th>
+ 
+ </tr>
+ </thead>
+ <tbody>
+ {% for film in films %}
+ <tr>
+ <td>{{ film.titre }}</td>
+ <td>{{ film.duree }}</td>
+ <td>{{ film.Genre.titre }}</td>
+ <td>
+ <a href="/film/{{ film.id }}" class="btn btn-dark">Détails</a>
+ <a href="/film/edit/{{ film.id }}" class="btn btn-dark">Modifier</a>
+ <a href="/film/delete/{{ film.id }}" class="btn btn-danger" onclick="return confirm('Etesvous sûr de supprimer ce film?');">Supprimer</a>
+
+ </td>
+ </tr>
+ {% endfor %}
+ </tbody>
+ </table>
+ {% else %}
+ <p>Aucun film</p>
+ {% endif %}
+{% endblock %}
